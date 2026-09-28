@@ -1,45 +1,77 @@
-# LIBRARY MANAGEMENT SYSTEM
+books = [
+    "Python",
+    "Java",
+    "C++",
+    "HTML",
+    "SQL"
+]
 
-# print("WELCOME TO SAANJHII PAATHSHAALA")
-# kitaabein = ["Hellen Keller", "Maths", "Science","Three Men in a Boat", "Social Studies", "Hindi", "Punjabi"]
+def show_books():
+    print("\n--- Books Available ---")
 
-# print("Available books:", kitaabein)
-# KiKrna = input("What you want to do? (issue / return / add): ").lower()
+    if len(books) == 0:
+        print("No books available!")
 
+    else:
+        for book in books:
+            print("-", book)
 
-# if KiKrna == "issue":
-#     kitaab = input("Enter book name you want to issue: ")
-#     if kitaab in kitaabein:
-#         kitaabein.remove(kitaab)
-#         print(kitaab, "issued successfully!")
-#     else:
-#         print("Sorry Buddy, Book not available right now!")
+def issue_book():
+    book = input("Enter book you want to issue: ")
 
+    if book in books:
+        books.remove(book)
+        print(book, "has been issued successfully!")
 
+    else:
+        print("Book not available!")
 
-# elif KiKrna == "return":
-#     kitaab = input("Enter book name you want to return: ")
-#     if kitaab in kitaabein:
-#         print("This book is already in library!")
-#     else:
-#         kitaabein.append(kitaab)
-#         print(kitaab, "returned successfully!")
+def return_book():
+    book = input("Enter book you want to return: ")
 
+    if book in books:
+        print("This book is already in the library!")
 
+    else:
+        books.append(book)
+        print(book, "has been returned successfully!")
 
-# elif KiKrna == "add":
-#     kitaab = input("Enter book name you want to add: ")
-#     if kitaab in kitaabein:
-#         print("Book already available!")
-#     else:
-#         kitaabein.append(kitaab)
-#         print(kitaab, "added successfully!")
+def add_book():
+    book = input("Enter new book name: ")
 
+    if book in books:
+        print("Book already exists!")
 
-# else:
-#     print("DITTE GYE OPTIONS VICHO SHI CHIJ CHUNO BAALAK!")
+    else:
+        books.append(book)
+        print(book, "added to the library!")
 
-# print("Final books in library:", kitaabein)
+while True:
 
+    print("\n===== LIBRARY MANAGEMENT SYSTEM =====")
+    print("1. Show Books")
+    print("2. Issue Book")
+    print("3. Return Book")
+    print("4. Add Book")
+    print("5. Exit")
 
+    choice = input("Enter your choice: ")
 
+    if choice == "1":
+        show_books()
+
+    elif choice == "2":
+        issue_book()
+
+    elif choice == "3":
+        return_book()
+
+    elif choice == "4":
+        add_book()
+
+    elif choice == "5":
+        print("Thank you for using the Library Management System!")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
